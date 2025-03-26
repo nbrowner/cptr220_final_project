@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "Futura Bold";
+  src: url("fonts/Futura-Bold.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Futura Bold", sans-serif;
+}
+
+nav a {
+  font-size: 30px;
+  color: white;
+  font-family: serif;
+  font-weight: 900;
+  display: inline;
+  margin-right: 1rem;
+}
+
+.flex-container-0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  z-index: 1;
+}
+
+.flex-item-1 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flex-container-1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+
+.flex-item-1,
+.flex-item-2,
+.flex-item-3,
+.flex-item-4 {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.flex-item-2 a,
+.flex-item-3 a,
+.flex-item-4 a {
+  color: white;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+header h1 {
+  padding: 10px;
+  text-align: center;
+}
+
+nav a:hover {
+  color: #656950;
+  background-color: white;
+}
+
+h2 a:hover {
+  color: lightblue;
+  text-decoration: underline;
+  font-weight: 900;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .flex-item1,
+  .flex-item2,
+  .flex-item3 {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  nav a {
+    font-size: 20px;
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  header {
+    text-align: left;
+    padding: 10px 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  #hamburger-menu {
+    display: block;
+  }
+
+  #churches-links {
+    display: none;
+  }
+
+  #hamburger-menu.active + #churches-links {
+    display: block;
+  }
+}
+
+/* Additional styles for even smaller screens */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  nav a {
+    font-size: 18px;
+  }
+}
+
+.flex-item-2 .background-image,
+.flex-item-3 .background-image,
+.flex-item-4 .background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: opacity(0.5);
+  z-index: 1;
+  transition: transform 0.5s ease-in-out;
+}
+
+.flex-item-2 .background-image img,
+.flex-item-3 .background-image img,
+.flex-item-4 .background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flex-item-2:hover .background-image,
+.flex-item-3:hover .background-image,
+.flex-item-4:hover .background-image {
+  transform: scale(1.1);
+}
+
+.background-container {
+  position: relative;
+  background-image: url("../img/main/main.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-container header {
+  position: relative;
+  z-index: 1;
+}
+
+.background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 50%);
+
+  /* Optional: Add a dark overlay for better text readability */
+  z-index: 0;
+}
+
+/* Fade-in effect */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-in effects */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Parallax effect */
+.parallax {
+  position: relative;
+  will-change: transform;
+}
